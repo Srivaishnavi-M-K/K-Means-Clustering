@@ -78,9 +78,8 @@ with left:
 
 with right:
     st.subheader("Where your reading falls")
-    fig = px.scatter(data.sample(2500, random_state=1), x="temperature", y="energy_consumption",
-                     color="segment", opacity=0.4, template="plotly_dark",
-                     labels={"temperature": "Temperature (°C)", "energy_consumption": "Energy (kWh)"})
+     fig = px.scatter(data.sample(n=min(2500, len(data)), random_state=1),x="temperature",y="energy_consumption",color="segment",
+      opacity=0.4,template="plotly_dark",labels={"temperature": "Temperature (°C)","energy_consumption": "Energy (kWh)"})
     fig.add_trace(go.Scatter(x=[temperature], y=[energy], mode="markers", name="Your input",
                              marker=dict(size=20, color="white", symbol="star",
                                          line=dict(width=2, color="black"))))
